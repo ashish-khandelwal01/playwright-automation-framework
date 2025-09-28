@@ -1,0 +1,12 @@
+import { test, expect } from "@playwright/test";
+
+test("has title", async ({ page }) => {
+  await page.goto("https://playwright.dev/");
+  await expect(page).toHaveTitle(/Playwright/);
+});
+
+test("get started link", async ({ page }) => {
+  await page.goto("https://playwright.dev/");
+  const getStarted = page.locator("text=Get Started");
+  await expect(getStarted).toBeVisible();
+});
